@@ -1,3 +1,7 @@
 # info343-team
 Where the shit gets done, the legendary team. 
-My favorite candy is butterfingers, i don't feel comfortable telling you why. 
+
+
+
+I actually just don't like sweets, so forget candy and bring me the chips and popcorn.
+
