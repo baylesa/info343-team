@@ -17,6 +17,7 @@
     <h1>InfoTeam Form Webpage</h1>
     
     <form name="appForm" class="form-horizontal" novalidate>
+
        <div class="form-group" ng-class = "form-control">
           <label for="email">Email:</label>
           <input type="email" name="email" id="email" class="form-control" ng-model="email" required placeholder="email address">
@@ -31,6 +32,19 @@
           <input type="text" name="last" id="last" class="form-control" ng-model="last" required placeholder="your last name">
           <p ng-show ="appForm.last.$touched && appForm.last.$invalid" class="help-block">Must enter a last name.</p>
       </div>
+
+      <div class="form-group" ng-class = "form-control">
+          <label for="password">Password:</label>
+          <input type="password" name="password" id="password" class="form-control" ng-model="password" required>
+          <p ng-show ="appForm.password.$touched && appForm.password.$invalid" class="help-block">Must enter a password.</p>
+      </div>
+
+      <div class="form-group" ng-class = "form-control">
+          <label for="confirmPassword">Confirm Password:</label>
+          <input type="password" name="confirmPassword" id="confirmPassword" class="form-control" ng-model="confirmPassword" required>
+          <p ng-show ="appForm.confirmPassword.$touched && appForm.confirmPassword.$invalid" class="help-block">Must confirm your password and it must be the same.</p>
+      </div>
+
       <div class="form-group">
         <!-- call method on click -->
         <button class="btn btn-primary" ng-click="showAlert(appForm)" type="submit" ng-disabled="appForm.$invalid" id="submit">Sign Me Up!</button>

@@ -15,6 +15,7 @@ describe('Last Name Field', function() {
     });
 })
 
+
 describe('Success Message', function() {
     beforeEach(function() {
         browser.get('http://localhost:8000/');
@@ -31,5 +32,30 @@ describe('Success Message', function() {
 
           var successAlert = element(by.model('successAlert'));
           expect( successAlert.isPresent() ).toEqual(true);
+})
+
+describe('Password Field', function() {
+    it('should display error message if empty and touched', function(){
+      browser.get('http://localhost:8000/');
+      var password = element(by.model("password"));
+      //password.sendKeys('success');
+
+      var errorMessage = element(by.css('.help-block'));
+      expect( errorMessage.isPresent() ).toEqual(true);
+    });
+})
+
+describe('Confirm Password Field', function() {
+    it('should display error message if empty and touched', function(){
+      browser.get('http://localhost:8000/');
+      var confirmPassword = element(by.model("confirmPassword"));
+      var password = element(by.model("password"));
+      password.sendKeys("success");
+      confirmPassword.sendKeys("success");
+      expect(password).toEqual(confirmPassword); 
+
+      var errorMessage = element(by.css('.help-block'));
+      expect( errorMessage.isPresent() ).toEqual(true);
+
     });
 })
