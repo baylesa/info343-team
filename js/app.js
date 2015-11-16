@@ -3,7 +3,10 @@ angular.module('TeamChallengeApp', ['ngSanitize'] ) //ngSanitize for HTML displa
 
 //controls the home view
 .controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
-	
+	$scope.showSuccess = false;
+    $scope.showAlert = function(form) {
+            $scope.showSuccess = true;
+    }
 
 }])
 
