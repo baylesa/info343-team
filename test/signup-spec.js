@@ -46,17 +46,18 @@ describe('Password Field', function() {
 })
 
 describe('Confirm Password Field', function() {
-    it('should display error message if empty and touched', function(){
+    it('should display error message if empty and touched or does not match password', function(){
       browser.get('http://localhost:8000/');
       var confirmPassword = element(by.model("confirmPassword"));
       var password = element(by.model("password"));
       password.sendKeys("success");
       confirmPassword.sendKeys("success");
-      
-      expect(password).toEqual(confirmPassword); 
+      var passwordText = password.getText();
+      var confirmText = confirmPassword.getText();
+      expect(confirmText).toEqual(passwordText); 
 
       var errorMessage = element(by.css('.help-block'));
-      expect( errorMessage.isPresent() ).toEqual(true);
 
+      expect( errorMessage.isPresent() ).toEqual(false);
     });
 })
