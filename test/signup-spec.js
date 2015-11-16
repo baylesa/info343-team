@@ -52,6 +52,7 @@ describe('Confirm Password Field', function() {
       var password = element(by.model("password"));
       password.sendKeys("success");
       confirmPassword.sendKeys("success");
+      
       expect(password).toEqual(confirmPassword); 
 
       var errorMessage = element(by.css('.help-block'));
