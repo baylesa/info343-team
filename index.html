@@ -19,37 +19,37 @@
          <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" name="email" id="email" class="form-control" ng-model="email" placeholder="Your email"required>
-            <p ng-show ="appForm.email.$touched && appForm.email.$invalid" class="help-block">Must have a valid email address.</p>
+            <p ng-show ="appForm.email.$dirty && appForm.email.$invalid" class="help-block">{{formFieldErrors.email}}</p>
         </div>
 
          <div class="form-group">
             <label for="first">First Name:</label>
             <input type="text" name="first" id="first" class="form-control" ng-model="first" placeholder="Your first name" required>
-            <p ng-show="appForm.first.$touched && appForm.first.$invalid" class="help-block">Must enter a first name.</p>
+            <p ng-show="appForm.first.$dirty && appForm.first.$invalid" class="help-block">{{formFieldErrors.firstName}}</p>
         </div>
 
          <div class="form-group">
             <label for="last">Last Name:</label>
             <input type="text" name="last" id="last" class="form-control" ng-model="last" required placeholder="Your last name">
-            <p ng-show="appForm.last.$touched && appForm.last.$invalid" class="help-block">Must enter a last name.</p>
+            <p ng-show="appForm.last.$dirty && appForm.last.$invalid" class="help-block">{{formFieldErrors.lastName}}</p>
         </div>
 
         <div class="form-group">
           <label for="birthdate">Birthdate:</label>
           <input type="text" name="birthdate" class="form-control" reasonable placeholder="MM/DD/YYYY" ng-model="birthdate" required>
-          <p ng-show="appForm.birthdate.$touched && appForm.birthdate.$error.validDate" class="help-block">{{birthdateFeedback}}</p>
+          <p ng-show="appForm.birthdate.$dirty && appForm.birthdate.$error.validDate" class="help-block">{{birthdateError}}</p>
         </div>
 
         <div class="form-group">
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" class="form-control" ng-model="password" required>
-            <p ng-show ="appForm.password.$touched && appForm.password.$invalid" class="help-block">Must enter a password.</p>
+            <p ng-show ="appForm.password.$dirty && appForm.password.$invalid" class="help-block">{{formFieldErrors.password}}</p>
         </div>
 
         <div class="form-group">
             <label for="confirmPassword">Confirm Password:</label>
             <input type="password" name="confirmPassword" id="confirmPassword" class="form-control" ng-model="confirmPassword" required>
-            <p ng-show="appForm.confirmPassword.$touched && appForm.confirmPassword.$invalid" class="help-block">Must confirm your password and it must be the same as above.</p>
+            <p ng-show="appForm.confirmPassword.$dirty && appForm.confirmPassword.$invalid" class="help-block">{{formFieldErrors.confirmPassword}}</p>
         </div>
 
         <div class="form-group">

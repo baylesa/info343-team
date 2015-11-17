@@ -1,7 +1,7 @@
 'use strict';
-angular.module('TeamChallengeApp', ['ngSanitize'] ) //ngSanitize for HTML displaying
+angular.module('TeamChallengeApp', ['ngSanitize'])
 
-//controls the home view
+// Controller for the home view
 .controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 	$scope.showSuccess = false;  // defaults alerts to hidden
 	$scope.showIncorrectPass = false;
@@ -16,9 +16,20 @@ angular.module('TeamChallengeApp', ['ngSanitize'] ) //ngSanitize for HTML displa
 		}
     };
 
+    // Errors used in form fields
+    $scope.formFieldErrors = {
+        email: 'Must have a valid email address.',
+        firstName: 'Must enter a first name.',
+        lastName: 'Must enter a last name',
+        birthdateForm: 'Must be a valid birthdate of the form (MM/DD/YYYY).',
+        birthdateYear: 'Birthdate must be at least thirteen years in the past.',
+        password: 'Must enter a password.',
+        confirmPassword: 'Must confirm your password and it must be the same as above.'
+    };
+
     // Used in custom validation in 'reasonable' date directive
     $scope.birthdate = '';
-    $scope.birthdateFeedback = 'Must be a valid birthdate of the form (MM/DD/YYYY)';
+    $scope.birthdateError = $scope.formFieldErrors.birthdateForm;
 }])
 .directive('reasonable', function() {
   return {
@@ -39,9 +50,8 @@ angular.module('TeamChallengeApp', ['ngSanitize'] ) //ngSanitize for HTML displa
         var dateEntered = new Date(viewValue);
         var todayMinusThirteen = new Date();
         todayMinusThirteen.setFullYear(todayMinusThirteen.getFullYear() - 13);
-        console.log(dateEntered > todayMinusThirteen);
         if(dateEntered > todayMinusThirteen) {
-            scope.birthdateFeedback = 'Birthdate must be at least thirteen years in the past';
+            scope.birthdateError = scope.formFieldErrors.birthdateYear;
             return false;
         }
         
