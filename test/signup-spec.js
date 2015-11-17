@@ -7,7 +7,7 @@ describe('First Name Field', function() {
     it('should display error message if empty and touched', function(){
 
       var firstName = element(by.model('first'));
-      firstName.sendKeys('Alphie');
+      firstName.sendKeys('Alphie'); // touches field
       firstName.clear();
 
       var errorMessage = element(by.css('.help-block'));
